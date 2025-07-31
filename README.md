@@ -1,4 +1,4 @@
-# qMetOmics
+\# qMetOmics
 
 
 
@@ -6,7 +6,7 @@ Spectra\_generator: python-based tool for 1H NMR spectra simulation based on off
 
 
 
-\##Spectra\_generator
+\## Spectra\_generator
 
 \- User must input .xlsx or .csv files containing metabolite names, peak parameters, and concentrations.
 
