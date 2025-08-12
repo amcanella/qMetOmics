@@ -91,16 +91,15 @@ class Simulator:
 
     #Vary the width
     def set_width(self, width):
-        """"Returns a randomised peak width scaled to the reference field."""
+        """"Applies a realistic randomised peak width change within ranges."""
         spectral_f = 500 #samples are taken at 500 MHz
 
         width_norm = width/spectral_f #scaled width by the reference 500 MHz
 
         return width_norm*random.gauss(1, 0.04) #4% small variation to the width of the peak
 
-    #Shift the centres
     def set_new_centre(self, clusters):
-        """Samples a random shift for each cluster within its allowed ppm window."""
+        """Applies a random shift for each cluster within its allowed ppm window."""
         id_ = 0
         lista = []
         for row in clusters:
@@ -130,8 +129,8 @@ class Simulator:
 
     #Make the zero areas
     def ranges(self, a):
-        """Returns cut ranges of arrays based on ppm window indices."""
-        b = a[5557:28030] #Cutting zeros tails
+        """Cuts the tails of the spectra."""
+        b = a[5557:28030] #Cutting tails with zero values
 
         return b
 
@@ -144,7 +143,7 @@ class Simulator:
              csv_writer.writerows(map(np.ndarray.tolist, matrix)) if isinstance(matrix[0], np.ndarray) else  csv_writer.writerows(matrix)#applying map function to iterable
 
     def spur_gen(self,start, end, points):
-        """Generate a spurious-peak signal by sampling random clusters and translating peaks."""
+        """Generates a spurious-peak signal by sampling random clusters and translating peaks."""
         peaks = 0
         lor = 0
         x_new = np.linspace(start, end, points) #np.linspace(0.3807, 9.9946, 22473)
@@ -175,7 +174,6 @@ class Simulator:
             lor += self.lorentzian(x_new, x0, gamma, area, conc, conc_ref)
 
         return lor
-
 
     def constructor(self, mets, noise, spur_flag = 0):
             """Constructs synthetic spectrum (raw), with optional noise and spurs, and its corresponding ground truth (concentration + aligned)."""
