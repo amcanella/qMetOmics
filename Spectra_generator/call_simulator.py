@@ -9,9 +9,7 @@ Coordinates data loading and spectrum generation, and handles progress and
 """
 import time
 import simulator
-from simulator import ProcessData
-from simulator import Simulator
-
+from simulator import ProcessData, Simulator
 
 p = ProcessData('C:/path/to/database.xlsx') #INPUT YOUR DATABASE PATH, template of database will be provided 
 d = p.create_dict()
