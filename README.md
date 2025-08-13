@@ -1,4 +1,4 @@
-# qMetOmics
+# qOmicsNet
 
 
 
@@ -24,4 +24,3 @@ Spectra\_generator: python-based tool for 1H NMR spectra simulation based on off
  - Takes the simulations and trains NN
  - Quant model outputs a 66-dimension vector with relative metabolite concentrations
  - Alignment model outputs the same spectrum with clusters in their standard position
- - Plots performance parameters
